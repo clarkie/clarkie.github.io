@@ -1,0 +1,31 @@
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+
+paginate: 10 # pagination based on number of posts
+paginate_path: "page:num"
+exclude: ["README.md", "cv.html"] # files to exclude
+highlighter: pygments
+markdown: kramdown
+
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: Clarkie's Thoughts
+
+description: Clarkie's Thoughts
+author:
+  name: clarkie
+  email: andrew.t.clarke@gmail.com
+  github: clarkie
+  twitter: clarkieclarkie
+  linkedin: clarkie1
+  bio: Technical Architect and Lead Software Engineer @ Concrete
+  email_md5: 0879cced934d7c3b466af0b59b59cc6b
+
+rss_path: feed.xml
+categories_path: categories.html
+tags_path: tags.html
+
+BASE_PATH:
