@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Using AWS SQS with Node.js
-categories: [aws]
-tags: [sqs, aws, elastic-beanstalk]
+categories: [nodejs]
+tags: [sqs, aws, elastic-beanstalk, nodejs]
 fullview: true
 ---
 
