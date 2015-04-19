@@ -72,6 +72,16 @@ article{
 	margin-bottom: 20px;
 }
 
+.article_body h1 {
+	font-size: 2em;
+}
+.article_body h2 {
+	font-size: 1.5em;
+}
+.article_body h3 {
+	font-size: 1.1em;
+}
+
 .post-date {
 	text-transform: uppercase;
 	font-size: 14px;
