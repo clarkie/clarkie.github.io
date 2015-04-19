@@ -72,14 +72,17 @@ article{
 	margin-bottom: 20px;
 }
 
-.article_body h1 {
+.article_body h1,
+.home h1 {
+	font-size: 3em;
+}
+.article_body h2,
+.home h2 {
 	font-size: 2em;
 }
-.article_body h2 {
+.article_body h3,
+.home h3 {
 	font-size: 1.5em;
-}
-.article_body h3 {
-	font-size: 1.1em;
 }
 
 .post-date {
