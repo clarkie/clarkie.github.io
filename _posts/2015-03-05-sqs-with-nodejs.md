@@ -6,7 +6,7 @@ tags: [sqs, aws, elastic-beanstalk, nodejs]
 fullview: true
 ---
 
-At [Concrete](http://www.concrete.cc) we're looking at utilising some of AWS's services to speed up devleopment of our new platform. As part of this I've been investigating the use of their SQS service to help coordinate the delivery of thumbnails and assets globally. It's quite a simple queueing mechanism that office a guarantee of delivery "at least once". This isn't really that much of a problem for us as we'll generate keys in our apps and if we create the same thumbnail twice it's just a waste and nothing more.
+At [Concrete](http://www.concrete.cc) we're looking at utilising some of AWS's services to speed up development of our new platform. As part of this I've been investigating the use of their SQS service to help coordinate the delivery of thumbnails and assets globally. It's quite a simple queueing mechanism that office a guarantee of delivery "at least once". This isn't really that much of a problem for us as we'll generate keys in our apps and if we create the same thumbnail twice it's just a waste and nothing more.
 
 Pumping messages into the queue was simple enough using the [aws-sdk](https://www.npmjs.com/package/aws-sdk) module:
 
