@@ -15,7 +15,7 @@ As a quick hack I knew I could just include the bundle.js file in my git repo. T
 
 For #1 this is kind of obvious but I'd considered my front end libraries as pre-production. I was only going to ship the bundled code so why would I need to include the likes of Backbone, Marionette, etc in my dependencies. The fix for this was to move them from devDependencies to dependencies.
 
-For #2 I decided to run an experiment. I created a pacage.json file with all the possible scripts with just a console.log in each one:
+For #2 I decided to run an experiment. I created a package.json file with all the possible scripts with just a console.log in each one:
 
 {% highlight javascript %}
 {
