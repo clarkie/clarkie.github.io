@@ -5,7 +5,7 @@ categories: [dev]
 tags: [git, svn]
 fullview: true
 ---
-When other attendees at conferences and meetups asked what version control we used I was always a little embarrased to say that we were still using SVN. Starting the CP4 project at [Concrete](www.concrete.cc) allowed us to start afresh and we had reasonably free reign to pick the technologies that we wanted to use. This meant that picking git for versioning was the obvious choice. 
+When other attendees at conferences and meetups asked what version control we used I was always a little embarrased to say that we were still using SVN. Starting the CP4 project at [Concrete](http://www.concrete.cc) allowed us to start afresh and we had reasonably free reign to pick the technologies that we wanted to use. This meant that picking git for versioning was the obvious choice. 
 
 This has worked great for the past nine or so months for our new repositories but it's now time to migrate our old SVN repositories over. The main CP3 application is in it's own repository and a team of engineers work on this daily so my view was that it wasn't going to be a simple switch over. This isn't the sort of thing you do every day so there's always going to be a bit of a risk and it couldn't impact on our feature delivery schedule or the monthly release cycle. 
 
