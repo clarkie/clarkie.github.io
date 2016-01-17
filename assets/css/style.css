@@ -9,24 +9,8 @@ code {
   font-family: 'Inconsolata', monospace;
 }
 
-.sidebar {
-  position: fixed;
-  top: 0px;
-  padding-top: 10%;
-  color: #333;
-}
-
-.sidebar-header {
-	text-align: center;
-	margin-bottom: 10px;
-}
-
-.sidebar-header img.img-circle {
-	border: 10px solid #ddd;
-}
-
 article {
-    border-bottom: 20px solid rgba(54,168,226,.5);
+  border-bottom: 20px solid rgba(54,168,226,.5);
   background: #fff;
   margin-bottom: 40px;
   padding: 20px;
@@ -45,14 +29,34 @@ a:hover {
   border-bottom: 2px solid rgba(54,168,226,.8);
 }
 
+.sidebar {
+  position: fixed;
+  top: 0px;
+  padding-top: 10%;
+  color: #333;
+}
+
+.sidebar-header {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.sidebar-header img.img-circle {
+	border: 10px solid #ddd;
+}
+
+#contact-list a, #contact-list a:hover {
+  border:1px solid #ccc;
+}
+
 #bio {
   margin-bottom: 20px;
 }
 
 .page-header {
-    border-top: 20px solid rgba(54,168,226,.5);
-    border-bottom: 20px solid rgba(54,168,226,.5);
-    margin: 20px 0;
+  border-top: 20px solid rgba(54,168,226,.5);
+  border-bottom: 20px solid rgba(54,168,226,.5);
+  margin: 20px 0;
 }
 
 .post-date {
@@ -63,5 +67,5 @@ a:hover {
 
 .author .author-image {
   float: left;
-   margin-right: 20px;
+  margin-right: 20px;
 }
