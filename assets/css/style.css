@@ -1,16 +1,19 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata|Roboto:400,700);
 
-body{
-	color:#222;
+body {
+  font-family: 'Roboto';
+	background: url(/assets/img/lightbg.png);
+}
+
+code {
+  font-family: 'Inconsolata', monospace;
 }
 
 .sidebar {
-	position: fixed;
-	top: 0px;
-	padding-top: 10%;
-	background-color: #2A3E3D;
-	color: #333;
-	background: url(/assets/img/lightbg.png);
+  position: fixed;
+  top: 0px;
+  padding-top: 10%;
+  color: #333;
 }
 
 .sidebar-header {
@@ -18,137 +21,47 @@ body{
 	margin-bottom: 10px;
 }
 
-.sidebar-header .title{
-	letter-spacing: 3px;
-	text-transform: uppercase;
-}
-
-.sidebar-header .title a{
-	text-decoration: none;
-}
-
 .sidebar-header img.img-circle {
 	border: 10px solid #ddd;
 }
 
-a {
-	color: #4292CC;
-}
-
-a:hover {
-	color: #4292CC;
-}
-
-a.nav-link {
-	padding-bottom: 5px;
-	padding-top: 7px;
-}
-
-a.nav-link i{
-	font-size: 16px;
-}
-
-#bio {
-	font-family: "Courier New", Courier, monospace;
-	font-size: 11px;
-	margin: 0 auto;
-	margin-bottom: 10px;
-}
-
-#contact-list-secondary {
-	padding-bottom: 10px;
-}
-
-.page-header {
-	text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
-}
-
-article{
-	margin-bottom: 40px;
-}
-
-.article_body{
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-.article_body h1,
-.home h1 {
-	font-size: 3em;
-}
-.article_body h2,
-.home h2 {
-	font-size: 2em;
-}
-.article_body h3,
-.home h3 {
-	font-size: 1.5em;
-}
-
-.post-date {
-	text-transform: uppercase;
-	font-size: 14px;
-	letter-spacing: 3px;
-}
-
 article {
-	padding: 0 5% 0;
+    border-bottom: 20px solid rgba(54,168,226,.5);
+  background: #fff;
+  margin-bottom: 40px;
+  padding: 20px;
 }
 
 article img { max-width: 100%; }
 
-h1,h2,h3,h4,h5,h6 { font-family: 'Ubuntu', sans-serif; }
-article.home h1,
-article.home h2,
-article.home h3,
-article.home h4,
-article.home h5,
-article.home h6 {
-	font-family: 'Ubuntu', sans-serif;
+a {
+  color: #000;
+  border-bottom: 2px dotted rgba(54,168,226,.8);
+}
+
+a:hover {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(54,168,226,.8);
+}
+
+#bio {
+  margin-bottom: 20px;
+}
+
+.page-header {
+    border-top: 20px solid rgba(54,168,226,.5);
+    border-bottom: 20px solid rgba(54,168,226,.5);
+    margin: 20px 0;
+}
+
+.post-date {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 3px;
 }
 
 .author .author-image {
   float: left;
-  margin-right: 20px;
-}
-
-footer {
-	padding-top: 15px;
-	font-family: 'Ubuntu';
-}
-
-.nav-tabs-vertical {
-    border-right: 1px solid #ddd;
-}
-
-.nav-tabs-vertical li {
-    margin-right: -1px;
-}
-
-.nav-tabs-vertical>li.active>a, .nav-tabs-vertical>li.active>a:hover, .nav-tabs-vertical>li.active>a:focus {
-    cursor: default;
-    border: 1px solid #ddd;
-}
-
-.nav-tabs-vertical>li>a {
-    line-height: 1.428571429;
-    border: 1px solid transparent;
-    border-radius: 4px 0 0 4px;
-}
-
-.badge { background: #4292CC; }
-
-#nav-menu{
-    position: fixed;
-    top: 45px;
-    right: 45px;
-    z-index: 2000;
-}
-#nav-menu .dropdown-menu {
-    left: inherit;
-    right: 0px;
-}
-
-ul.dropdown-menu>li>a>i.fa {
-    width: 1.3em;
+   margin-right: 20px;
 }
