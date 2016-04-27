@@ -17,7 +17,7 @@ For #1 this is kind of obvious but I'd considered my front end libraries as pre-
 
 For #2 I decided to run an experiment. I created a package.json file with all the possible scripts with just a console.log in each one:
 
-{% highlight javascript %}
+```
 {
 	"name": "npm-script-test",
 	"version": "1.0.0",
@@ -49,11 +49,11 @@ For #2 I decided to run an experiment. I created a package.json file with all th
 		"postrestart": "node -e \"console.log('postrestart');\""
 	}
 }
-{% endhighlight %}
+```
 
 The resulting log on Elastic Beanstalk in `/var/log/nodejs/nodejs.log`:
 
-{% highlight bash %}
+```
 > worth-sharing@1.0.0 prestart /var/app/current
 > node -e "console.log('prestart');"
 
@@ -68,7 +68,7 @@ start
 > node -e "console.log('poststart');"
 
 poststart
-{% endhighlight %}
+```
 
 It appears that these are the only npm scripts run by Elastic Beanstalk.
 

@@ -13,7 +13,7 @@ When building an app you might not initially think about how you want your serve
 
 Firstly create a `.elasticbeanstalk` directory in the root of your application. In here you'll create a `config.yml` file similar to this:
 
-{% highlight yaml %}
+```
 branch-defaults:
   master:
     environment: api-prod
@@ -23,7 +23,7 @@ global:
   default_region: eu-west-1
   profile: eb-cli
   sc: git
-{% endhighlight %}
+```
 
 If you run the `eb init` command you will be taken through a wizard which will create this for you. 
 
@@ -31,7 +31,7 @@ The next command you'll need is `eb create`. This will again take you through an
 
 If you run this command from a different branch it will link the new environment to the current branch. For example we're going to deploy our develop branch to a dev environment so we now have the following config:
 
-{% highlight yaml %}
+```
 branch-defaults:
   master:
     environment: api-prod
@@ -43,24 +43,24 @@ global:
   default_region: eu-west-1
   profile: eb-cli
   sc: git
-{% endhighlight %}
+```
 
 ##Application Configuration
 From within your application root folder create a folder `.ebextensions`. In here you can put as many `.config` files as you wish. These will be run in alphabetical order so I prefix mine with a two digit number e.g. `00-enviornment-variables.config`.
 
 For example the [aws-sdk](https://www.npmjs.com/package/aws-sdk) npm module recommends setting a couple of environment variables which we can do like so:
 
-{% highlight yaml %}
+```
 option_settings:
   - option_name: AWS_ACCESS_KEY_ID
     value: MY_AWS_ACCESS_KEY
   - option_name: AWS_SECRET_ACCESS_KEY
     value: SUPER_SECRET_AWS_SECRET
-{% endhighlight %}
+```
 
 You can also configure all other aspects of how your Elastic Beanstalk app runs for example the healthcheck url, min and max cluster size:
 
-{% highlight yaml %}
+```
 option_settings:
   - namespace:  aws:elasticbeanstalk:application
     option_name:  Application Healthcheck URL
@@ -71,13 +71,13 @@ option_settings:
   - namespace: aws:autoscaling:asg
     option_name: MaxSize
     value: 40    
-{% endhighlight %}
+```
 
 [This page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html) in the AWS docs has all the available options and details the defaults.
 
 You can also configure the proxy settings. For example we wanted to accept longer urls than the default Nginx setting. 
 
-{% highlight yaml %}
+```
 files:
     "/etc/nginx/conf.d/proxy.conf" :
         mode: "000755"
@@ -85,7 +85,7 @@ files:
         group: root
         content: |
            large_client_header_buffers 8 256k;
-{% endhighlight %}
+```
 
 ###Precedence Gotcha
 
