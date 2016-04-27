@@ -10,7 +10,7 @@ At [Concrete](http://www.concrete.cc) we're looking at utilising some of AWS's s
 
 Pumping messages into the queue was simple enough using the [aws-sdk](https://www.npmjs.com/package/aws-sdk) module:
 
-```
+```javascript
 var AWS = require('aws-sdk');
 
 AWS.config.update({accessKeyId: 'KEY', secretAccessKey: 'SECRET'});
@@ -20,47 +20,50 @@ var sqs = new AWS.SQS({region:'eu-west-1'});
 var msg = { payload: 'a message' };
 
 var sqsParams = {
-    MessageBody: JSON.stringify(msg),
-    QueueUrl: 'QUEUE_URL'
+  MessageBody: JSON.stringify(msg),
+  QueueUrl: 'QUEUE_URL'
 };
 
 sqs.sendMessage(sqsParams, function(err, data) {
-    if (err) {
-        console.log('ERR', err);
-    }
+  if (err) {
+    console.log('ERR', err);
+  }
 
-    console.log(data);
+  console.log(data);
 });
 ```
 
 The response  will look something like this
-```
-{ ResponseMetadata: { RequestId: '232c557d-b1ed-54a1-a88c-180f7aaf3eb3' },
+
+```javascript
+{ 
+  ResponseMetadata: { RequestId: '232c557d-b1ed-54a1-a88c-180f7aaf3eb3' },
   MD5OfMessageBody: '80cbb15af483887b15534f2ac3dfa46f',
-  MessageId: '6cc50b09-17a8-4907-beeb-ed3a620b562f' }
+  MessageId: '6cc50b09-17a8-4907-beeb-ed3a620b562f' 
+}
 ```
 
 On the other end of the queue you need to create a worker to do something with the message. The [sqs-consumer](https://www.npmjs.com/package/sqs-consumer) module by the BBC that handles polling the queue for you. Using this module my worker looked something like this:
 
-```
+```javascript
 var Consumer = require('sqs-consumer');
 
 var app = Consumer.create({
-    queueUrl: 'QUEUE_URL',
-    region: 'eu-west-1',
-    batchSize: 10,
-    handleMessage: function (message, done) {
+  queueUrl: 'QUEUE_URL',
+  region: 'eu-west-1',
+  batchSize: 10,
+  handleMessage: function (message, done) {
 
-        var msgBody = JSON.parse(message.Body);
-        console.log(msgBody);
+    var msgBody = JSON.parse(message.Body);
+    console.log(msgBody);
 
-        return done();
+    return done();
 
-    }
+  }
 });
 
 app.on('error', function (err) {
-    console.log(err);
+  console.log(err);
 });
 
 app.start();
@@ -70,25 +73,25 @@ Calling `done()` handles the removal of the message from the queue. Clearly, you
 
 All this was very exciting but what I didn't realise was that when deploying apps using Elastic Beanstalk you don't need to worry about polling the queue yourself, all your app needs to do is expose a POST route that takes the message as the payload. I'm a big fan of the [Hapi](http://hapijs.com) framework so my worker ended up like this:
 
-```
+```javascript
 var Hapi = require('hapi');
 
 var server = new Hapi.Server();
 server.connection({ port: process.env.PORT || 80 });
 
 server.route({
-    method: 'post',
-    path: '/',
-    handler: function (request, reply) {
+  method: 'post',
+  path: '/',
+  handler: function (request, reply) {
 
-        var msgBody = request.payload;
-        console.log(msgBody);
+    var msgBody = request.payload;
+    console.log(msgBody);
 
-    }
+  }
 });
 
 server.start(function() {
-    console.log('server started');
+  console.log('server started');
 });
 ``` 
 

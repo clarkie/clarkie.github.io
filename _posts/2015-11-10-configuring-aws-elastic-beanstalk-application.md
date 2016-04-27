@@ -13,7 +13,7 @@ When building an app you might not initially think about how you want your serve
 
 Firstly create a `.elasticbeanstalk` directory in the root of your application. In here you'll create a `config.yml` file similar to this:
 
-```
+```yaml
 branch-defaults:
   master:
     environment: api-prod
@@ -31,7 +31,7 @@ The next command you'll need is `eb create`. This will again take you through an
 
 If you run this command from a different branch it will link the new environment to the current branch. For example we're going to deploy our develop branch to a dev environment so we now have the following config:
 
-```
+```yaml
 branch-defaults:
   master:
     environment: api-prod
@@ -50,7 +50,7 @@ From within your application root folder create a folder `.ebextensions`. In her
 
 For example the [aws-sdk](https://www.npmjs.com/package/aws-sdk) npm module recommends setting a couple of environment variables which we can do like so:
 
-```
+```yaml
 option_settings:
   - option_name: AWS_ACCESS_KEY_ID
     value: MY_AWS_ACCESS_KEY
@@ -60,7 +60,7 @@ option_settings:
 
 You can also configure all other aspects of how your Elastic Beanstalk app runs for example the healthcheck url, min and max cluster size:
 
-```
+```yaml
 option_settings:
   - namespace:  aws:elasticbeanstalk:application
     option_name:  Application Healthcheck URL
@@ -77,14 +77,14 @@ option_settings:
 
 You can also configure the proxy settings. For example we wanted to accept longer urls than the default Nginx setting. 
 
-```
+```yaml
 files:
-    "/etc/nginx/conf.d/proxy.conf" :
-        mode: "000755"
-        owner: root
-        group: root
-        content: |
-           large_client_header_buffers 8 256k;
+  "/etc/nginx/conf.d/proxy.conf" :
+    mode: "000755"
+    owner: root
+    group: root
+    content: |
+     large_client_header_buffers 8 256k;
 ```
 
 ###Precedence Gotcha

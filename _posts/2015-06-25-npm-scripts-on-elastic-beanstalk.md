@@ -19,41 +19,41 @@ For #2 I decided to run an experiment. I created a package.json file with all th
 
 ```
 {
-	"name": "npm-script-test",
-	"version": "1.0.0",
-	"description": "",
-	"scripts": {
-		"prepublish": "node -e \"console.log('prepublish');\"",
-		"publish": "node -e \"console.log('publish');\"",
-		"postpublish": "node -e \"console.log('postpublish');\"",
-		"preinstall": "node -e \"console.log('preinstall');\"",
-		"install": "node -e \"console.log('install');\"",
-		"postinstall": "node -e \"console.log('postinstall');\"",
-		"preuninstall": "node -e \"console.log('preuninstall');\"",
-		"uninstall": "node -e \"console.log('uninstall');\"",
-		"postuninstall": "node -e \"console.log('postuninstall');\"",
-		"preversion": "node -e \"console.log('preversion');\"",
-		"version": "node -e \"console.log('version');\"",
-		"postversion": "node -e \"console.log('postversion');\"",
-		"pretest": "node -e \"console.log('pretest');\"",
-		"test": "node -e \"console.log('test');\"",
-		"posttest": "node -e \"console.log('posttest');\"",
-		"prestop": "node -e \"console.log('prestop');\"",
-		"stop": "node -e \"console.log('stop');\"",
-		"poststop": "node -e \"console.log('poststop');\"",
-		"prestart": "node -e \"console.log('prestart');\"",
-		"start": "node -e \"console.log('start');\"",
-		"poststart": "node -e \"console.log('poststart');\"",
-		"prerestart": "node -e \"console.log('prerestart');\"",
-		"restart": "node -e \"console.log('restart');\"",
-		"postrestart": "node -e \"console.log('postrestart');\""
-	}
+  "name": "npm-script-test",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "prepublish": "node -e \"console.log('prepublish');\"",
+    "publish": "node -e \"console.log('publish');\"",
+    "postpublish": "node -e \"console.log('postpublish');\"",
+    "preinstall": "node -e \"console.log('preinstall');\"",
+    "install": "node -e \"console.log('install');\"",
+    "postinstall": "node -e \"console.log('postinstall');\"",
+    "preuninstall": "node -e \"console.log('preuninstall');\"",
+    "uninstall": "node -e \"console.log('uninstall');\"",
+    "postuninstall": "node -e \"console.log('postuninstall');\"",
+    "preversion": "node -e \"console.log('preversion');\"",
+    "version": "node -e \"console.log('version');\"",
+    "postversion": "node -e \"console.log('postversion');\"",
+    "pretest": "node -e \"console.log('pretest');\"",
+    "test": "node -e \"console.log('test');\"",
+    "posttest": "node -e \"console.log('posttest');\"",
+    "prestop": "node -e \"console.log('prestop');\"",
+    "stop": "node -e \"console.log('stop');\"",
+    "poststop": "node -e \"console.log('poststop');\"",
+    "prestart": "node -e \"console.log('prestart');\"",
+    "start": "node -e \"console.log('start');\"",
+    "poststart": "node -e \"console.log('poststart');\"",
+    "prerestart": "node -e \"console.log('prerestart');\"",
+    "restart": "node -e \"console.log('restart');\"",
+    "postrestart": "node -e \"console.log('postrestart');\""
+  }
 }
 ```
 
 The resulting log on Elastic Beanstalk in `/var/log/nodejs/nodejs.log`:
 
-```
+```bash
 > worth-sharing@1.0.0 prestart /var/app/current
 > node -e "console.log('prestart');"
 
