@@ -1,6 +1,6 @@
 ---
 layout: post
-title: First ever pubic presentation
+title: First ever public presentation
 categories: [speaking, techDebt]
 tags: [SOTR, techDebt, speaking]
 fullview: true
